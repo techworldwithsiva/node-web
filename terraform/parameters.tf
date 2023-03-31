@@ -7,7 +7,7 @@ data "aws_ssm_parameter" "web_security_group_id" {
 }
 
 data "aws_ssm_parameter" "ecs_cluster_id" {
-  name = "/toptal/rds/ecs_cluster_id"
+  name = "/toptal/ecs/ecs_cluster_id"
 }
 
 data "aws_ssm_parameter" "web_target_group_arn" {
