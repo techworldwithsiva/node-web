@@ -1,3 +1,10 @@
+kind: ConfigMap
+metadata:
+  name: web-config
+data:
+  PORT: 3001
+  API_HOST: "http://node-api"
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,6 +25,9 @@ spec:
       - name: node-web
         imagePullPolicy: Always
         image: 752692907119.dkr.ecr.ap-south-1.amazonaws.com/node-web:latest
+        envFrom:
+        - configMapRef:
+            name: web-config
         ports:
         - containerPort: 3001
 ---
