@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-web
+  labels:
+    app: node-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-web
+  template:
+    metadata:
+      labels:
+        app: node-web
+    spec:
+      containers:
+      - name: node-web
+        imagePullPolicy: Always
+        image: 752692907119.dkr.ecr.ap-south-1.amazonaws.com/node-web:latest
+        ports:
+        - containerPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-web
+spec:
+  type: LoadBalancer
+  selector:
+    app: node-web
+  ports:
+  - name: http
+    port: 80
+    targetPort: 3001
+
