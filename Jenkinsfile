@@ -3,7 +3,7 @@
 
 Map configMap = [
     application: "node",
-    COMPONENT_NAME: "node-app"
+    COMPONENT_NAME: "node-web"
 ]
 if ( env.BRANCH_NAME.equalsIgnoreCase('master') ){
     pipelineDecision.applicationPipeline(configMap)
