@@ -8,3 +8,4 @@ data "aws_iam_policy_document" "ecs_trust" {
     }
   }
 }
+data "aws_region" "current" {}
